@@ -3,13 +3,14 @@ package p0628;
 public class Card {
 	
 	enum Kind{ SPADE,DIAMOND,HEART,CLOVER }
-			
+	
 	private int number;
 	private Kind kind;
 //	private String kind;
-	// SPADE, spade,Spade ... 
+	// SPADE,spade,Spade.....
 	
 	Card(){}
+	
 	Card(int number,Kind kind){
 		this.number = number;
 		this.kind = kind;

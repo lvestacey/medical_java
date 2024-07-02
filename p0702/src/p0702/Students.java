@@ -1,43 +1,41 @@
-package p0628;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+package p0702;
 
 public class Students {
 	
-	static int count = 1;
-	{ //초기화블럭
-		Date d = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yy");
-		// S24001,S24002
-		this.stuNo = "S"+sdf.format(d)+String.format("%03d", count++);
-	}
+	private String stuNo;
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	private int total;
+	private double avg;
+	private int rank;
+	public static int count = 1;
 	
-	Students(){} //기본생성자
-	Students(String name,int kor,int eng,int math){
+	public Students(){} //기본생성자
+	
+	public Students(String name, int kor, int eng, int math) {
+		this.stuNo = String.format("S%04d",count++);
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
 		this.math = math;
-		this.total = kor + eng + math;
-		this.avg = this.total / 3.0;
+		this.total = kor+eng+math;
+		this.avg = this.total/3.0;
 	}
 	
-	String stuNo;
-	String name;
-	int kor;
-	int eng;
-	int math;
-	int total;
-	double avg;
-	int rank;
+	public Students(String stuNo, String name, int kor, int eng, int math, int total, double avg, int rank) {
+		this.stuNo = stuNo;
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.total = total;
+		this.avg = avg;
+		this.rank = rank;
+	}
 	
-	public static int getCount() {
-		return count;
-	}
-	public static void setCount(int count) {
-		Students.count = count;
-	}
 	public String getStuNo() {
 		return stuNo;
 	}
@@ -86,10 +84,8 @@ public class Students {
 	public void setRank(int rank) {
 		this.rank = rank;
 	}
-	@Override
-	public String toString() {
-		return String.format("%s,%s,%d,%.2f", stuNo,name,total,avg);
-	}
+	
+	
 	
 	
 
